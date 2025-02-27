@@ -2,7 +2,8 @@
 using System.Security.Cryptography.X509Certificates;
 
 Console.WriteLine("Hello, World!");
-
+// this solution file contain th implementation of the solid principle in a easy way for the understanding.
+// these are the best practice used by the programmer to code with cleaness and reusable. 
 //Solid Principal Implementation in c#
 
 // Single  Responsibility Principal 
