@@ -1,7 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Net.Cache;
+using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 
 Console.WriteLine("Hello, World!");
+UserService userService= new UserService();
+userService.CreateUser();
 // this solution file contain th implementation of the solid principle in a easy way for the understanding.
 // these are the best practice used by the programmer to code with cleaness and reusable. 
 //Solid Principal Implementation in c#
@@ -97,19 +101,35 @@ public class ConsoleLogger : ILogger
 {
     public void Log (string message)=> Console.WriteLine(message);
 }
-
+public class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
 public class UserService
 {
     private readonly ILogger _logger;
-
+    public UserService ()
+    { 
+    }
     public UserService(ILogger logger)
     {
         _logger = logger;
     }
-
+  
     public void CreateUser()
     {
         Console.WriteLine("User ");
+        var people = new List<Person>
+        {
+            new Person { Name= "Alice", Age= 30  },
+            new Person {Name ="bob" , Age= 30 },
+            new Person { Name= "Charlie", Age=25}
+        };
+
+        var groupedbyAge = people.GroupBy(p => p.Age = 30);
+        Console.WriteLine(groupedbyAge);
+
         _logger.Log("usercreated");
     }
 }
